@@ -1,55 +1,27 @@
-public class Main {
-    public static void insertionSort(int[] array){
-        for (int i = 1; i < array.length; ++i) {
-            int key = array[i];
-            int j = i - 1;
-            while (j >= 0 && array[j] > key) {
-                array[j + 1] = array[j];
-                j = j - 1;
-            }
-            array[j + 1] = key;
-        }
-    }
-    static int partition(int intArray[], int low, int high) {
-        int pi = intArray[high];
-        int i = (low-1);
-        for (int j=low; j<high; j++) {
-            if (intArray[j] <= pi) {
-                i++;
-                int temp = intArray[i];
-                intArray[i] = intArray[j];
-                intArray[j] = temp;
-            }
-        }
-        int temp = intArray[i+1];
-        intArray[i+1] = intArray[high];
-        intArray[high] = temp;
+import java.util.Arrays;
 
-        return i+1;
-    }
-    public static void quickSort(int intArray[], int low, int high) {
-        if (low < high) {
-            int pi = partition(intArray, low, high);
-            quickSort(intArray, low, pi-1);
-            quickSort(intArray, pi+1, high);
-        }
-    }
-    public static void printArray(int[] array){
-        System.out.print("(");
-        for(int i=0;i<array.length;i++){
-            System.out.print(array[i]);
-            if (i < array.length-1){
-                System.out.print(", ");
-            }else{
-                System.out.println(")");
-            }
-        }
-    }
+public class Main {
     public static void main(String[] args) {
-      int[] array={0,18,26,7,13,8,11,34,17};
-      printArray(array);
-      //insertionSort(array);
-        quickSort(array,0,array.length-1);
-      printArray(array);
+//-----------------------------------Test  homework1-----------------------------------
+
+//      int[] array={0,18,26,7,13,8,11,34,17};
+//        System.out.println("Array before sorting");
+//        System.out.println(Arrays.toString(array));
+//        System.out.println("Array after sorting");
+//        //ArraySortUtil.insertionSort(array);
+//        ArraySortUtil.quickSort(array,0,array.length-1);
+//        System.out.println(Arrays.toString(array));
+
+//-----------------------------------Test Task1 from homework2-----------------------------------
+        String s1 = "hello";
+        String s2 = "java";
+        System.out.println(StringUtil.sumOfLength(s1, s2));
+        StringUtil.printResult(s1, s2);
+        System.out.println(StringUtil.concatAndUppercase(s1, s2));
+
+//-----------------------------------Test Task2 from homework2-----------------------------------
+        String st1 = "anagram";
+        String st2 = "margana";
+        StringUtil.printCaseInsensitiveAnnagram(st1,st2);
     }
 }
